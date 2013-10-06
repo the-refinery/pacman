@@ -5,6 +5,26 @@ describe Board do
     @board.tiles[x][y]
   end
 
+  def check_accessible_in row, columns
+    for i in 0..27
+      if columns.include? i
+        tile_at(row, i).accessible?.should be_true
+      else
+        tile_at(row, i).accessible?.should be_false
+      end
+    end
+  end
+
+  def check_accessible_not_in row, columns
+    for i in 0..27
+      if columns.include? i
+        tile_at(row, i).accessible?.should be_false
+      else
+        tile_at(row, i).accessible?.should be_true
+      end
+    end
+  end
+
   before :each do
     @board = Board.new
   end
@@ -50,41 +70,19 @@ describe Board do
       end
 
       it "Sets up Row 4" do
-        open = [1, 12, 15, 27]
-
-        for i in 0..27
-          if open.include? i
-            tile_at(4, i).accessible?.should be_true
-          else
-            tile_at(4, i).accessible?.should be_false
-          end
-        end
+        check_accessible_in 4, [1, 12, 15, 27]
       end
 
       it "Sets up Row 5" do
-        open = [1, 12, 15, 27]
-
-        for i in 0..27
-          if open.include? i
-            tile_at(5, i).accessible?.should be_true
-          else
-            tile_at(5, i).accessible?.should be_false
-          end
-        end
+        check_accessible_in 5, [1, 12, 15, 27]
       end
 
       it "Sets up Row 6" do
-        closed = [0, 7, 8, 13, 14, 19, 20, 27]
-
-        for i in 0..27
-          if closed.include? i
-            tile_at(6, i).accessible?.should be_false
-          else
-            tile_at(6, i).accessible?.should be_true
-          end
-        end
-
+        check_accessible_not_in 6, [0, 7, 8, 13, 14, 19, 20, 27]
       end
+
+
+
     end
   end
 end
