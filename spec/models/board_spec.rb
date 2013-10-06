@@ -113,6 +113,24 @@ describe Board do
         check_accessible_in 14, [6, 9, 18, 21]
       end
 
+      it "Sets up Row 15" do
+        check_accessible_in 15, [6, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 21]
+      end
+
+      it "Sets up Row 16" do
+        check_accessible_in 16, [6, 9, 18, 21]
+      end
+
+      it "Sets up Row 17" do
+        check_accessible_in 17, [6, 9, 18, 21]
+      end
+
+      it "Sets up Row 18" do
+        check_accessible_not_in 18, [10, 11, 12, 13, 14, 15, 16, 17]
+      end
+
+
+
     end
   end
 end

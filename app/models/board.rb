@@ -93,5 +93,20 @@ class Board
     [6, 9, 18, 21].include? y
   end
 
+  def row_15_accessible y
+    [6, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 21].include? y
+  end
+
+  def row_16_accessible y
+    [6, 9, 18, 21].include? y
+  end
+
+  def row_17_accessible y
+    [6, 9, 18, 21].include? y
+  end
+
+  def row_18_accessible y
+    ![10, 11, 12, 13, 14, 15, 16, 17].include? y
+  end
 
 end
