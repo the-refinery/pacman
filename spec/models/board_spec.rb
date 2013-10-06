@@ -81,7 +81,37 @@ describe Board do
         check_accessible_not_in 6, [0, 7, 8, 13, 14, 19, 20, 27]
       end
 
+      it "Sets up Row 7" do
+        check_accessible_in 7, [3, 6, 9, 18, 21, 24]
+      end
 
+      it "Sets up Row 8" do
+        check_accessible_in 8, [3, 6, 9, 18, 21, 24]
+      end
+
+      it "Sets up Row 9" do
+        check_accessible_not_in 9, [1, 4, 5, 22, 23, 27]
+      end
+
+      it "Sets up Row 10" do
+        check_accessible_in 10, [1, 6, 12, 15, 21, 26]
+      end
+
+      it "Sets up Row 11" do
+        check_accessible_in 11, [1, 6, 12, 15, 21, 26]
+      end
+
+      it "Sets up Row 12" do
+        check_accessible_not_in 12, [1, 13, 14, 27]
+      end
+
+      it "Sets up Row 13" do
+        check_accessible_in 13, [6, 9, 18, 21]
+      end
+
+      it "Sets up Row 14" do
+        check_accessible_in 14, [6, 9, 18, 21]
+      end
 
     end
   end

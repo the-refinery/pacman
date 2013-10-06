@@ -46,11 +46,7 @@ class Board
   end
 
   def row_3_accessible y
-    if y == 0 || y == 27
-      false
-    else
-      true
-    end
+    ![0,27].include? y
   end
 
   def row_4_accessible y
@@ -64,5 +60,38 @@ class Board
   def row_6_accessible y
     ![0, 7, 8, 13, 14, 19, 20, 27].include? y
   end
+
+  def row_7_accessible y
+    [3, 6, 9, 18, 21, 24].include? y
+  end
+
+  def row_8_accessible y
+    [3, 6, 9, 18, 21, 24].include? y
+  end
+
+  def row_9_accessible y
+    ![1, 4, 5, 22, 23, 27].include? y
+  end
+
+  def row_10_accessible y
+    [1, 6, 12, 15, 21, 26].include? y
+  end
+
+  def row_11_accessible y
+    [1, 6, 12, 15, 21, 26].include? y
+  end
+
+  def row_12_accessible y
+    ![1, 13, 14, 27].include? y
+  end
+
+  def row_13_accessible y
+    [6, 9, 18, 21].include? y
+  end
+
+  def row_14_accessible y
+    [6, 9, 18, 21].include? y
+  end
+
 
 end
