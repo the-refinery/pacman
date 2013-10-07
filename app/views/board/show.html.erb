@@ -21,17 +21,13 @@
   <% 35.step(0, -1) do |row| %>
     <tr>
     <td><%= row %></td>
-
     <% 0.step(27) do |col| %>
-      <td>
         <% if @board.tiles[row][col].accessible? %>
-          &nbsp;
+          <td>&nbsp;</td>
         <% else %>
-          X
+          <td>X</td>
         <% end %>
-      </td>
     <% end %>
-
     <td><%= row %></td>
   </tr>
 <% end %>
