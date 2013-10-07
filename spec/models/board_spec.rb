@@ -60,13 +60,7 @@ describe Board do
       end
 
       it "Sets up Row 3" do
-        tile_at(3, 0).accessible?.should be_false
-
-        for i in 1..26
-          tile_at(3, i).accessible?.should be_true
-        end
-
-        tile_at(3, 27).accessible?.should be_false
+        check_accessible_not_in 3, [0, 27]
       end
 
       it "Sets up Row 4" do
@@ -129,7 +123,81 @@ describe Board do
         check_accessible_not_in 18, [10, 11, 12, 13, 14, 15, 16, 17]
       end
 
+      it "Sets up Row 19" do
+        check_accessible_in 19, [6, 9, 18, 21]
+      end
 
+      it "Sets up Row 20" do
+        check_accessible_in 20, [6, 9, 18, 21]
+      end
+
+      it "Sets up Row 21" do
+        check_accessible_in 21, [6, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 21]
+      end
+
+      it "Sets up Row 22" do
+        check_accessible_in 22, [6, 12, 15, 21]
+      end
+
+      it "Sets up Row 23" do
+        check_accessible_in 23, [6, 12, 15, 21]
+      end
+
+      it "Sets up Row 24" do
+        check_accessible_not_in 24, [0, 7, 8, 13, 14, 19, 20, 27]
+      end
+
+      it "Sets up Row 25" do
+        check_accessible_in 25, [1, 6, 9, 18, 21, 26]
+      end
+
+      it "Sets up Row 26" do
+        check_accessible_in 26, [1, 6, 9, 18, 21, 26]
+      end
+
+      it "Sets up Row 27" do
+        check_accessible_not_in 27, [0, 27]
+      end
+
+      it "Sets up Row 28" do
+        check_accessible_in 28, [1, 6, 12, 15, 21, 26]
+      end
+
+      it "Sets up Row 29" do
+        check_accessible_in 29, [1, 6, 12, 15, 21, 26]
+      end
+
+      it "Sets up Row 30" do
+        check_accessible_in 30, [1, 6, 12, 15, 21, 26]
+      end
+
+      it "Sets up Row 31" do
+        check_accessible_not_in 31, [0, 13, 14, 27]
+      end
+
+      it "Sets up Row 32" do
+        @board.tiles[32].each_value do |tile|
+          tile.accessible?.should be_false
+        end
+      end
+
+      it "Sets up Row 33" do
+        @board.tiles[33].each_value do |tile|
+          tile.accessible?.should be_false
+        end
+      end
+
+      it "Sets up Row 34" do
+        @board.tiles[34].each_value do |tile|
+          tile.accessible?.should be_false
+        end
+      end
+
+      it "Sets up Row 35" do
+        @board.tiles[35].each_value do |tile|
+          tile.accessible?.should be_false
+        end
+      end
 
     end
   end

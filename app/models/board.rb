@@ -109,4 +109,72 @@ class Board
     ![10, 11, 12, 13, 14, 15, 16, 17].include? y
   end
 
+  def row_19_accessible y
+    [6, 9, 18, 21].include? y
+  end
+
+  def row_20_accessible y
+    [6, 9, 18, 21].include? y
+  end
+
+  def row_21_accessible y
+    [6, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 21].include? y
+  end
+
+  def row_22_accessible y
+    [6, 12, 15, 21].include? y
+  end
+
+  def row_23_accessible y
+    [6, 12, 15, 21].include? y
+  end
+
+  def row_24_accessible y
+    ![0, 7, 8, 13, 14, 19, 20, 27].include? y
+  end
+
+  def row_25_accessible y
+    [1, 6, 9, 18, 21, 26].include? y
+  end
+
+  def row_26_accessible y
+    [1, 6, 9, 18, 21, 26].include? y
+  end
+
+  def row_27_accessible y
+    ![0,27].include? y
+  end
+
+  def row_28_accessible y
+    [1, 6, 12, 15, 21, 26].include? y
+  end
+
+  def row_29_accessible y
+    [1, 6, 12, 15, 21, 26].include? y
+  end
+
+  def row_30_accessible y
+    [1, 6, 12, 15, 21, 26].include? y
+  end
+
+  def row_31_accessible y
+    ![0, 13, 14, 27].include? y
+  end
+
+  def row_32_accessible y
+    false
+  end
+
+  def row_33_accessible y
+    false
+  end
+
+  def row_34_accessible y
+    false
+  end
+
+  def row_35_accessible y
+    false
+  end
+
 end
