@@ -13,4 +13,11 @@ class Tile
     @accessible
   end
 
+  def distance_to target_tile 
+    a = (@x - target_tile.x).abs
+    b = (@y - target_tile.y).abs
+
+    Math.sqrt(a**2 + b**2)
+  end
+
 end
