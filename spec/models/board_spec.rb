@@ -84,7 +84,7 @@ describe Board do
       end
 
       it "Sets up Row 9" do
-        check_accessible_not_in 9, [1, 4, 5, 22, 23, 27]
+        check_accessible_not_in 9, [0, 4, 5, 22, 23, 27]
       end
 
       it "Sets up Row 10" do
@@ -96,7 +96,7 @@ describe Board do
       end
 
       it "Sets up Row 12" do
-        check_accessible_not_in 12, [1, 13, 14, 27]
+        check_accessible_not_in 12, [0, 13, 14, 27]
       end
 
       it "Sets up Row 13" do

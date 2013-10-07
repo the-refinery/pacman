@@ -70,7 +70,7 @@ class Board
   end
 
   def row_9_accessible y
-    ![1, 4, 5, 22, 23, 27].include? y
+    ![0, 4, 5, 22, 23, 27].include? y
   end
 
   def row_10_accessible y
@@ -82,7 +82,7 @@ class Board
   end
 
   def row_12_accessible y
-    ![1, 13, 14, 27].include? y
+    ![0, 13, 14, 27].include? y
   end
 
   def row_13_accessible y
