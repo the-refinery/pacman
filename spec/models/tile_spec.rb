@@ -53,6 +53,24 @@ describe Tile do
 
       @source_tile.distance_to(target).should == 5
     end
+
+    it "Computes to a tile to the North West" do
+      target = Tile.new 9, 5, true
+
+      @source_tile.distance_to(target).should == 5
+    end
+
+    it "Computes to a tile to the South East" do
+      target = Tile.new 3, 13, true
+
+      @source_tile.distance_to(target).should == 5
+    end
+
+    it "Computes to a tile to the South West" do
+      target = Tile.new 3, 5, true
+
+      @source_tile.distance_to(target).should == 5
+    end
   end
 
 
