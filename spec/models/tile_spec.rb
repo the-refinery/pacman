@@ -49,7 +49,7 @@ describe Tile do
     end
 
     it "Computes to a tile to the North East" do
-      target = Tile.new 9, 14, true
+      target = Tile.new 9, 13, true
 
       @source_tile.distance_to(target).should == 5
     end
