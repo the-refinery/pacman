@@ -36,8 +36,8 @@ describe Board do
       @board.tiles[0].count.should == 28
 
       tile = tile_at 4, 26
-      tile.x.should == 4
-      tile.y.should == 26
+      tile.row.should == 4
+      tile.column.should == 26
     end
 
     context "Identifies available tiles" do
@@ -199,6 +199,212 @@ describe Board do
         end
       end
     end
+
+    context "Defines Routes" do
+
+      it "Defines East-West paths" do
+        target = tile_at 3, 6
+
+        target.north.should be_nil
+
+        target.south.should be_nil
+
+        target.east.should_not be_nil
+        target.east.row.should == 3
+        target.east.column.should == 7
+
+        target.west.should_not be_nil
+        target.west.row.should == 3
+        target.west.column.should == 5
+      end
+
+      it "Defines North-South paths" do
+        target = tile_at 15, 6
+
+        target.north.should_not be_nil
+        target.north.row.should == 16
+        target.north.column.should == 6
+
+        target.south.should_not be_nil
+        target.south.row.should == 14
+        target.south.column.should == 6
+
+        target.east.should be_nil
+
+        target.west.should be_nil
+      end
+
+      it "Defines North-East turns" do
+        target = tile_at 6, 9
+
+        target.north.should_not be_nil
+        target.north.row.should == 7
+        target.north.column.should == 9
+
+        target.south.should be_nil
+
+        target.east.should_not be_nil
+        target.east.row.should == 6
+        target.east.column.should == 10
+
+        target.west.should be_nil
+      end
+
+      it "Defines North-West turns" do
+        target = tile_at 6, 6
+
+        target.north.should_not be_nil
+        target.north.row.should == 7
+        target.north.column.should == 6
+
+        target.south.should be_nil
+
+        target.east.should be_nil
+
+        target.west.should_not be_nil
+        target.west.row.should == 6
+        target.west.column.should == 5
+      end
+
+      it "Defines South-East turns" do
+        target = tile_at 9, 24
+
+        target.north.should be_nil
+
+        target.south.should_not be_nil
+        target.south.row.should == 8
+        target.south.column.should == 24
+
+        target.east.should_not be_nil
+        target.east.row.should == 9
+        target.east.column.should == 25
+
+        target.west.should be_nil
+      end
+
+      it "Defines South-West turns" do
+        target = tile_at 9, 3
+
+        target.north.should be_nil
+
+        target.south.should_not be_nil
+        target.south.row.should == 8
+        target.south.column.should == 3
+
+        target.east.should be_nil
+
+        target.west.should_not be_nil
+        target.west.row.should == 9
+        target.west.column.should == 2
+      end
+
+      it "Defines East-West-North intersections" do
+        target = tile_at 3, 12
+
+        target.north.should_not be_nil
+        target.north.row.should == 4
+        target.north.column.should == 12
+
+        target.south.should be_nil
+
+        target.east.should_not be_nil
+        target.east.row.should == 3
+        target.east.column.should == 13
+
+        target.west.should_not be_nil
+        target.west.row.should == 3
+        target.west.column.should == 11
+      end
+
+      it "Defines East-West-South intersections" do
+        target = tile_at 31, 6
+
+        target.north.should be_nil
+
+        target.south.should_not be_nil
+        target.south.row.should == 30
+        target.south.column.should == 6
+
+        target.east.should_not be_nil
+        target.east.row.should == 31
+        target.east.column.should == 7
+
+        target.west.should_not be_nil
+        target.west.row.should == 31
+        target.west.column.should == 5
+      end
+
+      it "Defines North-South-East intersections" do
+        target = tile_at 27, 1
+
+        target.north.should_not be_nil
+        target.north.row.should == 28
+        target.north.column.should == 1
+
+        target.south.should_not be_nil
+        target.south.row.should == 26
+        target.south.column.should == 1
+
+        target.east.should_not be_nil
+        target.east.row.should == 27
+        target.east.column.should == 2
+
+        target.west.should be_nil
+      end
+
+      it "Defines North-South-West intersections" do
+        target = tile_at 27, 26
+
+        target.north.should_not be_nil
+        target.north.row.should == 28
+        target.north.column.should == 26
+
+        target.south.should_not be_nil
+        target.south.row.should == 26
+        target.south.column.should == 26
+
+        target.east.should be_nil
+
+        target.west.should_not be_nil
+        target.west.row.should == 27
+        target.west.column.should == 25
+      end
+
+      it "Defines cross intersections" do
+        target = tile_at 18, 6
+
+        target.north.should_not be_nil
+        target.north.row.should == 19
+        target.north.column.should == 6
+
+        target.south.should_not be_nil
+        target.south.row.should == 17
+        target.south.column.should == 6
+
+        target.east.should_not be_nil
+        target.east.row.should == 18
+        target.east.column.should == 7
+
+        target.west.should_not be_nil
+        target.west.row.should == 18
+        target.west.column.should == 5
+      end
+
+      it "Defines the wrap-around tunnel" do
+        west_side = tile_at 18, 0
+        east_side = tile_at 18, 27
+
+        west_side.west.should_not be_nil
+        west_side.west.row.should == 18
+        west_side.west.column.should == 27
+
+        east_side.east.should_not be_nil
+        east_side.east.row.should == 18
+        east_side.east.column.should == 0
+      end
+
+    end
+
   end
 
   context "Tils accessibility" do

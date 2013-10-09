@@ -1,10 +1,11 @@
 class Tile
 
-  attr_reader :x, :y
+  attr_reader :row, :column
+  attr_accessor :north, :south, :east, :west
 
-  def initialize x, y, accessible
-    @x = x
-    @y = y
+  def initialize row, column, accessible
+    @row = row
+    @column = column
 
     @accessible = accessible
   end
@@ -14,8 +15,8 @@ class Tile
   end
 
   def distance_to target_tile 
-    a = (@x - target_tile.x).abs
-    b = (@y - target_tile.y).abs
+    a = (@row - target_tile.row).abs
+    b = (@column - target_tile.column).abs
 
     Math.sqrt(a**2 + b**2)
   end

@@ -6,8 +6,8 @@ describe Tile do
     it "Initializes with the given coordinates" do
       tile = Tile.new 1, 5, true
 
-      tile.x.should == 1
-      tile.y.should == 5
+      tile.row.should == 1
+      tile.column.should == 5
     end
   end
 

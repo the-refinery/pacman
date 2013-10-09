@@ -4,6 +4,7 @@ class Board
 
   def initialize
     setup_tiles
+    setup_routes
   end
 
   def tile_at row, column
@@ -12,7 +13,7 @@ class Board
     end
   end
 
-private
+  private
 
   def setup_tiles
     @tiles = Hash.new
@@ -38,6 +39,59 @@ private
     else
       false
     end
+  end
+
+  def setup_routes
+    @tiles.each_value do |columns|
+      columns.each_value do |tile|
+        setup_north_route_for tile
+        setup_south_route_for tile
+        setup_east_route_for tile
+        setup_west_route_for tile
+      end
+    end
+  end
+
+  def setup_north_route_for tile
+    north = tile_at tile.row+1, tile.column
+
+    unless north.nil? || north.accessible? == false
+      tile.north = north
+    end
+  end
+
+  def setup_south_route_for tile
+    south = tile_at tile.row-1, tile.column
+
+    unless south.nil? || south.accessible? == false
+      tile.south = south
+    end
+
+  end
+
+  def setup_east_route_for tile
+    east = tile_at tile.row, tile.column+1
+
+    if east.nil?
+      if tile.accessible?
+        tile.east = tile_at tile.row, 0
+      end
+    elsif east.accessible?
+      tile.east = east
+    end
+  end
+
+  def setup_west_route_for tile
+    west = tile_at tile.row, tile.column-1
+
+    if west.nil?
+      if tile.accessible?
+        tile.west = tile_at tile.row, @tiles[tile.row].keys.max
+      end
+    elsif west.accessible?
+      tile.west = west
+    end
+
   end
 
   def setup_map
