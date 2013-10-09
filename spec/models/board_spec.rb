@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe Board do
-  def tile_at x, y
-    @board.tiles[x][y]
+  def tile_at row, column
+    @board.tiles[row][column]
   end
 
   def check_accessible_in row, columns
@@ -198,7 +198,41 @@ describe Board do
           tile.accessible?.should be_false
         end
       end
-
     end
   end
+
+  context "Tils accessibility" do
+
+    it "Returns the tile at the specified row and column" do
+      tile = @board.tile_at 5, 10
+
+      tile.should == @board.tiles[5][10]
+    end
+
+    it "Returns nil of the requested row/column is below the board" do
+      tile =  @board.tile_at -1, 10
+
+      tile.should be_nil
+    end
+
+    it "Returns nil of the requested row/column is above the board" do
+      tile =  @board.tile_at 40, 10
+
+      tile.should be_nil
+    end
+
+    it "Returns nil of the requested row/column is to the left of the board" do
+      tile =  @board.tile_at 5, -1
+
+      tile.should be_nil
+    end
+
+    it "Returns nil of the requested row/column is to the right of the board" do
+      tile =  @board.tile_at 5, 40
+
+      tile.should be_nil
+    end
+
+  end
+
 end

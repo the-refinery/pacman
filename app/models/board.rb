@@ -6,6 +6,14 @@ class Board
     setup_tiles
   end
 
+  def tile_at row, column
+    if @tiles.has_key? row
+      @tiles[row][column]
+    end
+  end
+
+private
+
   def setup_tiles
     @tiles = Hash.new
 
@@ -28,13 +36,7 @@ class Board
     if map.has_key? row
       map[row].available? column
     else
-      method = "row_#{row}_accessible"
-
-      if self.respond_to? method
-        self.send(method.to_sym, column)
-      else
-        false
-      end
+      false
     end
   end
 
