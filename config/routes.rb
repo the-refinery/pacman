@@ -1,3 +1,3 @@
-Pacman::Application.routes.draw do
+PacmanWorkshop::Application.routes.draw do
   root 'board#show'
 end

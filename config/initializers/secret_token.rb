@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Pacman::Application.config.secret_key_base = '0a465bb1dda1a6e3f7214e28906d732855ece59c07087cd5d234fd231165f433938394547ec4f72fe18e4d1fbce26a3cceb691c7b042ac3fb50de359fdca752b'
+PacmanWorkshop::Application.config.secret_key_base = '0a465bb1dda1a6e3f7214e28906d732855ece59c07087cd5d234fd231165f433938394547ec4f72fe18e4d1fbce26a3cceb691c7b042ac3fb50de359fdca752b'
