@@ -21,4 +21,8 @@ class Tile
     Math.sqrt(a**2 + b**2)
   end
 
+  def inspect
+    "<Tile:#{object_id}, row: #{@row}, column: #{@column}, accessible: #{@accessible}>"
+  end
+
 end
