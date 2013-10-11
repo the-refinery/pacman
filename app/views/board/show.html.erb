@@ -21,12 +21,8 @@
   <% 35.step(0, -1) do |row| %>
     <tr>
     <td><%= row %></td>
-    <% 0.step(27) do |col| %>
-        <% if @board.tiles[row][col].accessible? %>
-          <td>&nbsp;</td>
-        <% else %>
-          <td>X</td>
-        <% end %>
+    <% 0.step(27) do |column| %>
+      <td><%= display_tile_at row, column %></td>
     <% end %>
     <td><%= row %></td>
   </tr>
