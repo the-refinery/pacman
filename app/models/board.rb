@@ -1,10 +1,11 @@
 class Board
 
-  attr_reader :tiles
+  attr_reader :tiles, :pacman
 
   def initialize
     setup_tiles
     setup_routes
+    setup_pacman
   end
 
   def tile_at row, column
@@ -92,6 +93,10 @@ class Board
       tile.west = west
     end
 
+  end
+
+  def setup_pacman
+    @pacman = Pacman.new tile_at(9,14)
   end
 
   def setup_map

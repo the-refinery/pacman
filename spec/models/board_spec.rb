@@ -405,6 +405,17 @@ describe Board do
 
     end
 
+    context "Initializes PacMan" do
+
+      it "Creates a PacMan object and initializes him at the starting point" do
+        @board.pacman.should_not be_nil
+        @board.pacman.location.row.should == 9
+        @board.pacman.location.column.should == 14
+        @board.pacman.direction.should == :none
+      end
+
+    end
+
   end
 
   context "Tils accessibility" do
