@@ -7,12 +7,26 @@ class Pacman
     @direction = :none
   end
 
-  def move target, direction=nil
+  def move_to target, direction=nil
 
-    @location = target
+    if target.accessible?
+      @location = target
 
-    unless direction.nil?
-      @direction = direction
+      unless direction.nil?
+        @direction = direction
+      end
+
+      true
+    end
+
+  end
+
+  def move direction
+
+    target = @location.send(direction)
+
+    unless target.nil?
+      move_to target, direction
     end
 
   end
