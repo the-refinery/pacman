@@ -22,13 +22,11 @@ class Pacman
   end
 
   def move direction
-
     target = @location.send(direction)
 
     unless target.nil?
       move_to target, direction
     end
-
   end
 
 end
