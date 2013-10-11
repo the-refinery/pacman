@@ -20,7 +20,7 @@ class Board
 
     map = setup_map
 
-    for i in 0..35
+    0.step(35) do |i|
       setup_tile_row i, map
     end
   end
@@ -28,7 +28,7 @@ class Board
   def setup_tile_row row, map
     @tiles[row] = Hash.new
 
-    for i in 0..27
+    0.step(27) do |i|
       @tiles[row][i] = Tile.new row, i, compute_accessible_for(row, i, map)
     end
   end

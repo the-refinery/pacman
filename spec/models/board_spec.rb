@@ -6,7 +6,7 @@ describe Board do
   end
 
   def check_accessible_in row, columns
-    for i in 0..27
+    0.step(27) do |i|
       if columns.include? i
         tile_at(row, i).accessible?.should be_true
       else
@@ -16,7 +16,7 @@ describe Board do
   end
 
   def check_accessible_not_in row, columns
-    for i in 0..27
+    0.step(27) do |i|
       if columns.include? i
         tile_at(row, i).accessible?.should be_false
       else
