@@ -1,5 +1,13 @@
 // Table styles
 
-.verboten {
-  background-color: #000;
+.table {
+  width: 100%;
+}
+
+.table--grid {
+  th,
+  td {
+    min-width: 25px;
+    text-align: center;
+  }
 }
