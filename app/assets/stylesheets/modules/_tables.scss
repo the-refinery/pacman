@@ -26,6 +26,20 @@
 .available {
 }
 
+// Characters
+
 .pacman {
-  background-color: #fbfa04;
+  background-color: $pacman;
+}
+
+// Ghost targets
+
+@each $ghost in pinky $pinky, blinky $blinky, inky $inky, clyde $clyde {
+  .#{nth($ghost, 1)} {
+    background-color: #{nth($ghost, 2)};
+  }
+
+  td.#{nth($ghost, 1)}-target {
+    outline: 4px solid #{nth($ghost, 2)};
+  }
 }
