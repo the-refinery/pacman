@@ -22,7 +22,7 @@
     <tr>
     <td><%= row %></td>
     <% 0.step(27) do |column| %>
-      <td><%= display_tile_at row, column %></td>
+      <td class='<%= class_for_tile_at row, column %>'><%= display_tile_at row, column %></td>
     <% end %>
     <td><%= row %></td>
   </tr>
