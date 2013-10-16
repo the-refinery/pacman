@@ -5,9 +5,25 @@
 }
 
 .table--grid {
+  th {
+    font-weight: normal;
+  }
+
   th,
   td {
     min-width: 25px;
     text-align: center;
   }
+}
+
+.unavailable {
+  color: shade(#0d05a5, 50%);
+  background-color: shade(#0d05a5, 50%);
+}
+
+.available {
+}
+
+.pacman {
+  background-color: #fbfa04;
 }
