@@ -106,8 +106,8 @@ class Board
     map[1] = Row.new []
     map[2] = Row.new []
     map[3] = Row.new [0,27], false
-    map[4] = Row.new [1,12,15,27]
-    map[5] = Row.new [1,12,15,27]
+    map[4] = Row.new [1,12,15,26]
+    map[5] = Row.new [1,12,15,26]
     map[6] = Row.new [0, 7, 8, 13, 14, 19, 20, 27], false
     map[7] = Row.new [3, 6, 9, 18, 21, 24]
     map[8] = Row.new [3, 6, 9, 18, 21, 24]

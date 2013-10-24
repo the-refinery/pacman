@@ -64,11 +64,11 @@ describe Board do
       end
 
       it "Sets up Row 4" do
-        check_accessible_in 4, [1, 12, 15, 27]
+        check_accessible_in 4, [1, 12, 15, 26]
       end
 
       it "Sets up Row 5" do
-        check_accessible_in 5, [1, 12, 15, 27]
+        check_accessible_in 5, [1, 12, 15, 26]
       end
 
       it "Sets up Row 6" do
