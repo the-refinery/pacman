@@ -26,7 +26,9 @@ class Tile
   end
 
   def intersection?
-    [@north, @south, @east, @west].inject(0) {|result, item| result += item.accessible? ? 1 : 0} > 2
+    if accessible?
+      [@north, @south, @east, @west].inject(0) {|result, item| result += !item.nil? && item.accessible? ? 1 : 0} > 2
+    end
   end
 
 end

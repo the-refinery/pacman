@@ -39,6 +39,25 @@ describe Tile do
 
       tile.intersection?.should_not be_true
     end
+
+    it "Does not identify itself as an intersection if it's not accessible" do
+      tile = Tile.new 12, 3, false
+      tile.north = Tile.new 12, 4, true
+      tile.south = Tile.new 12, 2, false
+      tile.east = Tile.new 13, 3, true
+      tile.west = Tile.new 11, 3, true
+
+      tile.intersection?.should_not be_true
+    end
+
+    it "Handles literal edge cases" do
+      tile = Tile.new 0, 0, true
+
+      tile.north = Tile.new 0, 1, false
+      tile.east = Tile.new 1, 0, false
+
+      tile.intersection?.should_not be_true
+    end
   end
 
   context "Computes the distance to a given tile" do
@@ -94,6 +113,4 @@ describe Tile do
       @source_tile.distance_to(target).should == 5
     end
   end
-
-
 end
