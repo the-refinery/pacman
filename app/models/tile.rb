@@ -25,4 +25,8 @@ class Tile
     "<Tile:#{object_id}, row: #{@row}, column: #{@column}, accessible: #{@accessible}>"
   end
 
+  def intersection?
+    [@north, @south, @east, @west].inject(0) {|result, item| result += item.accessible? ? 1 : 0} > 2
+  end
+
 end

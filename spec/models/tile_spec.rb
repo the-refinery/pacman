@@ -19,6 +19,28 @@ describe Tile do
     end
   end
 
+  context "Intersection" do
+    it "Identifies itself if it's an intersection" do
+      tile = Tile.new 12, 3, true
+      tile.north = Tile.new 12, 4, true
+      tile.south = Tile.new 12, 2, false
+      tile.east = Tile.new 13, 3, true
+      tile.west = Tile.new 11, 3, true
+
+      tile.intersection?.should be_true
+    end
+
+    it "Does not identify itself if it's not an intersection" do
+      tile = Tile.new 11, 3, true
+      tile.north = Tile.new 11, 4, false
+      tile.south = Tile.new 11, 2, false
+      tile.east = Tile.new 12, 3, true
+      tile.west = Tile.new 10, 3, true
+
+      tile.intersection?.should_not be_true
+    end
+  end
+
   context "Computes the distance to a given tile" do
     before :each do
       @source_tile = Tile.new 6, 9, true
